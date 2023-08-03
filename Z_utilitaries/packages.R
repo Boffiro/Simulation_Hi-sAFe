@@ -1,4 +1,3 @@
-
 # Script loading packages
 
 package_list <- c(
@@ -17,10 +16,21 @@ for (i in package_list) {
   }
 }
 
-library(hisafer)
 library(tidyverse)
 library(precintcon)
 library(SPEI)
 library(styler)
+
+if (!requireNamespace(devtools, quietly = TRUE)) {
+  install.packages("devtools") # si ça ne marche pas, mettez à jour votre version de R
+}
+
+library(devtools)
+
+if (!requireNamespace(hisafer, quietly = TRUE)) {
+  devtools::install_github("kevinwolz/hisafer")
+}
+
+library(hisafer)
 
 rm(list = ls())
