@@ -1,0 +1,19 @@
+
+library(tidyverse)
+
+# Script Cleaning Dataset from CLIMATIK to a format suitable for meteo data used in Hi-sAFe
+
+rm(list = ls())
+
+setwd(dir = "A_data")
+
+# Read the daily data from CSV
+dataset_Hi_sAFe <- read.table("meteo/dataset_Hi-sAFe.txt", header = FALSE)
+
+colnames(dataset_Hi_sAFe) <- c("JULIAN_DAY", "AN", "MOIS", "JOUR", "TX", "TN", "UX", "UN", "RR", "RG")
+
+watertable_default <- read.csv2("watertable_default.txt", header = F)
+
+dataset_Hi_sAFe$WT <- rep(watertable_default[,1], length.out = nrow(dataset_Hi_sAFe))
+
+dataset_Hi_sAFe$airCO2 <- 330

@@ -20,6 +20,7 @@ library(tidyverse)
 library(precintcon)
 library(SPEI)
 library(styler)
+library(rstudioapi)
 
 if (!requireNamespace(devtools, quietly = TRUE)) {
   install.packages("devtools") # si ça ne marche pas, mettez à jour votre version de R

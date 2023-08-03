@@ -1,0 +1,12 @@
+
+library(tidyverse)
+library(rstudioapi)
+
+# Script Cleaning Dataset from CLIMATIK to a format suitable for meteo data used in Hi-sAFe
+
+rm(list = ls())
+
+setwd(dirname(rstudioapi::getActiveProject()))
+setwd(dir = "Climats_Cler_Mtp/A_data/meteo/")
+
+# Read the data

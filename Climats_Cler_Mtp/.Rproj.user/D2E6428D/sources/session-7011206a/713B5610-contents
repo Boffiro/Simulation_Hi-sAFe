@@ -1,12 +1,16 @@
 
 library(tidyverse)
+library(rstudioapi)
 
 # Script Cleaning Dataset from CLIMATIK to a format suitable for meteo data used in Hi-sAFe
 
 rm(list = ls())
 
+setwd(dirname(rstudioapi::getActiveProject()))
+setwd(dir = "Climats_Cler_Mtp/A_data/meteo/")
+
 # Read the daily data from CSV
-data_daily <- read.csv2("A_data/meteo/Maugio_1943-2022_METEO_STATION_34154001.csv", header = TRUE, sep = ";", dec = ".")
+data_daily <- read.csv2("Maugio_1943-2022_METEO_STATION_34154001.csv", header = TRUE, sep = ";", dec = ".")
 
 # Clean the data and create new columns
 data_daily_clean <- data_daily %>%
@@ -61,10 +65,11 @@ data_daily_clean <- data_daily %>%
 
 # Extract data for Hi_sAFe
 data_daily_Hi_sAFe <- data_daily_clean %>%
-  select(JULIAN_DAY, AN, MOIS, JOUR, TX, TN, UX, UN, RR, RG)
+  select(JULIAN_DAY, AN, MOIS, JOUR, TX, TN, UX, UN, RG, RR, V)
 
 #Save outputs
-setwd(dir = paste0(getwd(),"/C_outputs"))
+setwd(dirname(rstudioapi::getActiveProject()))
+setwd("Climats_Cler_Mtp/C_outputs")
 
 if (!file.exists("Cleaning")) {
   dir.create(file.path(getwd(), "Cleaning"), recursive = T)
