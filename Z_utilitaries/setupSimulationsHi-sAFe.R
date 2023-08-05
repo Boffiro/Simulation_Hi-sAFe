@@ -1,3 +1,6 @@
+
+library(rstudioapi)
+
 # Script setup Model
 
 # Check if the current working directory is empty
@@ -51,6 +54,9 @@ V : Vitesse moyenne du vent (Metres par seconde)")
   # Write the text to the .txt file
   writeLines(text, complete_file_path)
 }
+
+setwd("C_outputs/")
+
 
 # Remove all objects from the R environment
 rm(list = ls())

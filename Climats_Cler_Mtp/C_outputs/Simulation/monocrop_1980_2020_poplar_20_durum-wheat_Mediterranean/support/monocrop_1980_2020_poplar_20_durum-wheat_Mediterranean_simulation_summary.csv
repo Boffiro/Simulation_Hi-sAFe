@@ -1,0 +1,2 @@
+SimulationName,weatherFile,simulationYearStart,nbSimulations,mainCropSpecies,mainCropItk,treeSpecies
+monocrop_1980_2020_poplar_20_durum-wheat_Mediterranean,A_data/meteo/TEST.wth,1980,40,durum-wheat.plt,durum-wheat.tec,poplar.tree
